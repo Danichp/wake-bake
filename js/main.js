@@ -80,5 +80,36 @@
         tabControl.classList.add('tab-controls__link--active')
         tabContent.classList.add('tab-content--show')
     }
+
+
+    // ACCORDION
+
+    const accordionList = document.querySelectorAll('.accordion-list')
+
+    accordionList.forEach(el => {
+        el.addEventListener('click', e => {
+
+            const accordionList = e.currentTarget
+            const openedAccordionItem = accordionList.querySelector('.accordion-list__item--opened')
+            const openedAccordionContent = accordionList.querySelector('.accordion-list__item--opened .accordion-list__content')
+
+            const accordionControl = e.target.closest('.accordion-list__control')
+            if(!accordionControl) return
+            const accordionItem = accordionControl.parentElement
+            const accordionContent = accordionControl.nextElementSibling
+
+            if(openedAccordionItem && accordionItem !== openedAccordionItem){
+                openedAccordionContent.style.maxHeight = null
+                openedAccordionItem.classList.remove('accordion-list__item--opened')
+            }
+            accordionItem.classList.toggle('accordion-list__item--opened')
+
+            if(accordionItem.classList.contains('accordion-list__item--opened')){
+                accordionContent.style.maxHeight = accordionContent.scrollHeight + 'px'
+            } else {
+                accordionContent.style.maxHeight = null
+            }
+        })
+    })
 })()
 
