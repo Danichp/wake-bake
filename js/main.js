@@ -111,5 +111,57 @@
             }
         })
     })
+
+
+    // SLIDER-GALLERY
+
+    new Swiper('.gallery__slider', {
+        spaceBetween: 15,
+        slidesPerView:1.5,
+      
+        pagination: {
+          el: '.gallery__pagination',
+          type: 'fraction',
+        },
+      
+        navigation: {
+          nextEl: '.gallery__next',
+          prevEl: '.gallery__prev',
+        },
+
+        breakpoints: {
+            451: {
+                slidesPerView:2,
+              },
+            601: {
+                slidesPerView:3,
+              },
+            901: {
+                spaceBetween: 32,
+              },
+            1101: {
+                slidesPerView: 4,
+            },
+        }
+      });
+
+    //   SLIDER TEASTIMONIALS 
+
+    new Swiper('.testimonials__slider', {
+        spaceBetween: 0,
+        slidesPerView: 2.05,
+        centeredSlides: true,
+       
+        navigation: {
+          nextEl: '.testimonials__next',
+          prevEl: '.testimonials__prev',
+        },
+
+        scrollbar: {
+            el: '.testimonials__scrollbar',
+          },
+
+      });
+
 })()
 
